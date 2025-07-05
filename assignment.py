@@ -6,7 +6,8 @@
 
 
 def fizz_buzz(number):
-    """Returns Fizz if number is divisible by 3, Buzz if divisible by 5, FizzBuzz if divisible by both 3 and 5.
+    """
+    Returns Fizz if number is divisible by 3, Buzz if divisible by 5, FizzBuzz if divisible by both 3 and 5.
     If not divisible by either 3 or 5, returns the number itself.
     >>> fizz_buzz(3)
     'Fizz'
@@ -15,7 +16,14 @@ def fizz_buzz(number):
     >>> fizz_buzz(15)
     'FizzBuzz'
     """
-    return
+    if number % 3 == 0 and number % 5 == 0:
+        return "FizzBuzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return number
 
 
 # Question 2
@@ -30,7 +38,10 @@ def sum_of_squares(numbers):
     >>> sum_of_squares([2, 4, 6])
     56
     """
-    return
+    total = 0
+    for number in numbers:
+        total += number * number
+    return total
 
 
 # Question 3
@@ -39,13 +50,19 @@ def sum_of_squares(numbers):
 
 
 def count_vowels(string):
-    """Returns the number of vowels in a string.
+    """
+    Returns the number of vowels in a string.
     >>> count_vowels("hello")
     2
     >>> count_vowels("aeiou")
     5
     """
-    return
+    vowels = ["a", "e", "i", "o", "u"]
+    vowel_count = 0
+    for char in string.lower():
+        if char in vowels:
+            vowel_count += 1
+    return vowel_count
 
 
 # Question 4
@@ -60,7 +77,16 @@ def count_repeats(string):
     >>> count_repeats("aeiou")
     0
     """
-    return
+    letter_counts = {}
+    for letter in string.lower():
+        letter_counts[letter] = letter_counts.get(letter, 0) + 1
+
+    total_repeats = 0
+    for letter, count in letter_counts.items():
+        if count > 1:
+            total_repeats += count
+
+    return total_repeats
 
 
 if __name__ == "__main__":
